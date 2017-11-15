@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayoutSecondLine"
         android:id="@+id/linearLayoutFirstLine"
-        >
+        android:layout_alignParentStart="true">
 
         <Button
             android:layout_width="wrap_content"
@@ -34,31 +34,29 @@
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
             android:textSize="36sp"
+            android:gravity="center"
             android:id="@+id/button7"
-            style="?android:attr/buttonBarButtonStyle"
             />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="89dp"
             android:layout_height="80dp"
             android:text="@string/number_8"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
             android:textSize="36sp"
             android:gravity="center"
-            android:id="@+id/button8"
-            style="?android:attr/buttonBarButtonStyle"/>
+            android:id="@+id/button8"/>
 
         <Button
             android:id="@+id/button9"
             android:layout_width="wrap_content"
             android:layout_height="80dp"
+            android:background="@color/colorTextBackground"
+            android:gravity="center"
             android:text="@string/number_9"
             android:textColor="@color/colorText"
-            android:background="@color/colorTextBackground"
-            android:textSize="36sp"
-            android:gravity="center"
-            style="?android:attr/buttonBarButtonStyle"/>
+            android:textSize="36sp"/>
 
     </LinearLayout>
 
