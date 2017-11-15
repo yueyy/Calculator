@@ -13,12 +13,14 @@
         android:layout_height="100dp"
         android:textSize="40sp"
         android:textColor="@color/colorText"
+        android:lines="2"
+        android:maxLines="2"
         android:id="@+id/editText"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="@string/number_1"
+        android:text="@string/number_7"
         android:textColor="@color/colorText"
         android:background="@color/colorTextBackground"
         android:textSize="36sp"
@@ -29,7 +31,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="@string/number_2"
+        android:text="@string/number_8"
         android:textColor="@color/colorText"
         android:background="@color/colorTextBackground"
         android:textSize="36sp"
@@ -42,7 +44,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="@string/number_3"
+        android:text="@string/number_9"
         android:textColor="@color/colorText"
         android:background="@color/colorTextBackground"
         android:textSize="36sp"
@@ -89,7 +91,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="@string/number_7"
+        android:text="@string/number_1"
         android:textColor="@color/colorText"
         android:background="@color/colorTextBackground"
         android:textSize="36sp"
@@ -100,7 +102,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="@string/number_8"
+        android:text="@string/number_2"
         android:textColor="@color/colorText"
         android:background="@color/colorTextBackground"
         android:textSize="36sp"
@@ -112,7 +114,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="80dp"
-        android:text="@string/number_9"
+        android:text="@string/number_3"
         android:textColor="@color/colorText"
         android:background="@color/colorTextBackground"
         android:textSize="36sp"
@@ -129,12 +131,13 @@
         android:textSize="36sp"
         android:background="@color/colorTextBackground"
         android:layout_below="@+id/button7"
-        android:layout_toStartOf="@+id/buttonDot"/>
+        android:layout_toStartOf="@+id/buttonDot"
+        android:id="@+id/button"/>
     <Button
         android:id="@+id/delete"
         android:layout_width="120sp"
         android:layout_height="80dp"
-        android:text="delete"
+        android:text="@string/delete"
         android:textColor="@color/colorText"
         android:textSize="24sp"
         android:background="@color/colorTextBackground"
@@ -224,6 +227,6 @@
         android:id="@+id/buttonEquals"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/buttonMultiply"
-        android:layout_toStartOf="@+id/button9"/>
+        android:layout_toStartOf="@+id/buttonDot"
+        android:layout_below="@+id/button"/>
 </RelativeLayout>
