@@ -17,5 +17,5 @@
     <string name="equals">=</string>
     <string name="percent">%</string>
     <string name="dot">.</string>
-    <string name="delete">delete</string>
+    <string name="clear">c</string>
 </resources>

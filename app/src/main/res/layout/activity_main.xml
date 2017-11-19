@@ -253,8 +253,8 @@
             android:layout_height="80dp"
             android:background="@color/colorTextBackground"
             android:gravity="center"
-            android:text="@string/delete"
+            android:text="@string/clear"
             android:textColor="@color/colorText"
-            android:textSize="24sp"/>
+            android:textSize="36sp"/>
     </LinearLayout>
 </RelativeLayout>
