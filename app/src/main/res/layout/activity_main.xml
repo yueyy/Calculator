@@ -21,15 +21,16 @@
         android:id="@+id/editText"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayoutSecondLine"
         android:id="@+id/linearLayoutFirstLine"
         android:layout_alignParentStart="true">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/number_7"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -39,8 +40,9 @@
             />
 
         <Button
-            android:layout_width="89dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/number_8"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -50,8 +52,9 @@
 
         <Button
             android:id="@+id/button9"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:background="@color/colorTextBackground"
             android:gravity="center"
             android:text="@string/number_9"
@@ -59,8 +62,9 @@
             android:textSize="36sp"/>
 
         <Button
-            android:layout_width="121dp"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/multiply"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -76,8 +80,9 @@
         android:layout_above="@+id/linearLayoutThirdLine"
         android:id="@+id/linearLayoutSecondLine">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/number_4"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -87,8 +92,9 @@
             />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/number_5"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -97,8 +103,9 @@
             android:id="@+id/button5"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/number_6"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -107,8 +114,9 @@
             android:id="@+id/button6"/>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/divide"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -125,8 +133,9 @@
         android:id="@+id/linearLayoutThirdLine"
         >
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/number_1"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -135,8 +144,9 @@
             android:id="@+id/button1"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/number_2"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -145,8 +155,9 @@
             android:id="@+id/button2"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/number_3"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -155,8 +166,9 @@
             android:id="@+id/button3"/>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/percent"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -174,7 +186,8 @@
 
         <Button
             android:id="@+id/button0"
-            android:layout_width="176dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="80dp"
             android:background="@color/colorTextBackground"
             android:text="@string/number_0"
@@ -183,7 +196,8 @@
             android:textSize="36sp"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="80dp"
             android:text="@string/dot"
             android:textColor="@color/colorText"
@@ -193,8 +207,9 @@
             android:id="@+id/buttonDot"/>
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="80dp"
+            android:layout_weight="1"
             android:text="@string/equals"
             android:textColor="@color/colorText"
             android:background="@color/colorTextBackground"
@@ -204,63 +219,14 @@
 
 
     </LinearLayout>
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="vertical"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:id="@+id/last">-->
-
-        <!--<Button-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="80dp"-->
-            <!--android:text="@string/multiply"-->
-            <!--android:textColor="@color/colorText"-->
-            <!--android:background="@color/colorTextBackground"-->
-            <!--android:textSize="50sp"-->
-            <!--android:gravity="center"-->
-            <!--android:id="@+id/buttonMultiply"/>-->
-
-        <!--<Button-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="80dp"-->
-            <!--android:text="@string/divide"-->
-            <!--android:textColor="@color/colorText"-->
-            <!--android:background="@color/colorTextBackground"-->
-            <!--android:textSize="50sp"-->
-            <!--android:gravity="center"-->
-            <!--android:id="@+id/buttonDivide"/>-->
-
-        <!--<Button-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="80dp"-->
-            <!--android:text="@string/percent"-->
-            <!--android:textColor="@color/colorText"-->
-            <!--android:background="@color/colorTextBackground"-->
-            <!--android:textSize="50sp"-->
-            <!--android:gravity="center"-->
-            <!--android:id="@+id/buttonPercent"/>-->
-
-        <!--<Button-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="80dp"-->
-            <!--android:text="@string/equals"-->
-            <!--android:textColor="@color/colorText"-->
-            <!--android:background="@color/colorTextBackground"-->
-            <!--android:textSize="36sp"-->
-            <!--android:gravity="center"-->
-            <!--android:id="@+id/buttonEqual"/>-->
-    <!--</LinearLayout>-->
-
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayoutFifthLine"
         android:layout_above="@+id/linearLayoutFirstLine">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="80dp"
             android:text="@string/plus"
             android:textColor="@color/colorText"
@@ -270,7 +236,8 @@
             android:id="@+id/buttonPlus"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="80dp"
             android:text="@string/minus"
             android:textColor="@color/colorText"
@@ -279,18 +246,15 @@
             android:gravity="center"
             android:id="@+id/buttonMinus"/>
 
+        <Button
+            android:id="@+id/buttonDelete"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="80dp"
+            android:background="@color/colorTextBackground"
+            android:gravity="center"
+            android:text="@string/delete"
+            android:textColor="@color/colorText"
+            android:textSize="24sp"/>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonDelete"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_toEndOf="@id/linearLayoutFifthLine"
-        android:background="@color/colorTextBackground"
-        android:gravity="center"
-        android:text="@string/delete"
-        android:textColor="@color/colorText"
-        android:textSize="24sp"
-        android:layout_alignTop="@+id/linearLayoutFifthLine"
-        android:layout_alignParentEnd="true"/>
 </RelativeLayout>

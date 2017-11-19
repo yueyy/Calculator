@@ -12,10 +12,10 @@ public class MainActivity extends AppCompatActivity {
 
     private int[] numbericButton = {R.id.button0,R.id.button1,R.id.button1,R.id.button2,R.id.button3,R.id.button4,R.id.button5,R.id.button6,R.id.button7,R.id.button8,R.id.button9};
     private int[] calculateButton = {R.id.buttonDivide,R.id.buttonDot,R.id.buttonMinus,R.id.buttonEqual,R.id.buttonMultiply,R.id.buttonPercent,R.id.buttonPlus};
-    private double valueNumber;
+    private float numb1;
+    private float numb2;
 //    private boolean delete;
     private EditText mEditText;
-    private String operation = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,25 +62,34 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonEqual).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                onEqual();
+                onEqual(v);
             }
         });
     }
 
-    private void onEqual(){
-        String txt = mEditText.getText().toString();
-    }
-
-    public void onClick(View v){
+    private void onEqual(View v){
         float num1 = 0;
         float num2 = 0;
         float result = 0;
         num1 = Float.parseFloat(mEditText.getText().toString());
-        switch (v.getId())
-        case R.id.buttonMultiply:
-            operation = "+";
-        result = num1 + num2;
-
+        num2 = Float.parseFloat(mEditText.getText().toString());
+        switch (v.getId()) {
+            case R.id.buttonMultiply:
+                result = num1 + num2;
+                break;
+            case R.id.buttonMinus:
+                result = num1 - num2;
+                break;
+            case R.id.buttonPlus:
+                result = num1 * num2;
+                break;
+            case R.id.buttonDivide:
+                result = num1 / num2;
+                break;
+            default:
+                break;
+        }
+        mEditText.setText("="+result);
 
     }
 }
