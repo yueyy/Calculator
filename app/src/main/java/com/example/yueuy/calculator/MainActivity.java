@@ -12,8 +12,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int[] numbericButton = {R.id.buttonDot, R.id.button0, R.id.button1, R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5, R.id.button6, R.id.button7, R.id.button8, R.id.button9};
     private int[] operationalButton = {R.id.buttonDivide, R.id.buttonMinus, R.id.buttonEqual, R.id.buttonMultiply, R.id.buttonPercent, R.id.buttonPlus};
-    private String text1;
-    private String text2;
     private float num1;
     private float num2;
     private float result;
