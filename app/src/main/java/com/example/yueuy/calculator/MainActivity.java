@@ -1,6 +1,5 @@
 package com.example.yueuy.calculator;
 
-import android.animation.FloatEvaluator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,9 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private float num1;
     private float num2;
     private float result;
-//    private double valueOne = Double.NaN;
-//    private double valueTwo;
-    //    private boolean delete;
     private EditText mEditText;
     private boolean num = true;
     private int flag = 0;
@@ -74,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
                         mEditText.append(".");
                         break;
                 }
+                if (num) {
+                    num1 = Float.parseFloat(mEditText.getText() + "");
+                }else{
+                    num2 = Float.parseFloat(mEditText.getText() + "");
+                }
             }
         };
         for (int id : numbericButton) {
@@ -85,15 +86,13 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (num) {
-                    text1 = mEditText.getText().toString();
+                if (num1!=0){
                     num = false;
                 }else {
-                    text2 = mEditText.getText().toString();
                     num = true;
                 }
                 switch (v.getId()){
-                    case R.id.buttonMultiply:
+                    case R.id.buttonPlus:
                         mEditText.setText("");
                         flag = 1;
                         break;
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         mEditText.setText("");
                         flag = 2;
                         break;
-                    case R.id.buttonPlus:
+                    case R.id.buttonMultiply:
                         mEditText.setText("");
                         flag = 3;
                         break;
@@ -116,20 +115,9 @@ public class MainActivity extends AppCompatActivity {
             findViewById(id).setOnClickListener(listener);
         }
 
-        findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                text1 = null;
-                text2 = null;
-                mEditText.setText("");
-            }
-        });
-
         findViewById(R.id.buttonEqual).setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                num1 = Float.parseFloat(text1);
-                num2 = Float.parseFloat(text2);
                 switch (flag){
                     case 0:
                         break;
@@ -151,6 +139,16 @@ public class MainActivity extends AppCompatActivity {
                 mEditText.setText("" + result);
             }
         });
+
+        findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                num1 = 0;
+                num2 = 0;
+                mEditText.setText("");
+            }
+        });
+
     }
 }
 
