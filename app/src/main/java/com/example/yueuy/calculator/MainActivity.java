@@ -1,5 +1,6 @@
 package com.example.yueuy.calculator;
 
+import android.animation.FloatEvaluator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,9 +15,15 @@ public class MainActivity extends AppCompatActivity {
     private int[] operationalButton = {R.id.buttonDivide, R.id.buttonMinus, R.id.buttonEqual, R.id.buttonMultiply, R.id.buttonPercent, R.id.buttonPlus};
     private String text1;
     private String text2;
+    private float num1;
+    private float num2;
     private float result;
+//    private double valueOne = Double.NaN;
+//    private double valueTwo;
     //    private boolean delete;
     private EditText mEditText;
+    private boolean num = true;
+    private int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,26 +85,30 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (v.getId()) {
+                if (num) {
+                    text1 = mEditText.getText().toString();
+                    num = false;
+                }else {
+                    text2 = mEditText.getText().toString();
+                    num = true;
+                }
+                switch (v.getId()){
                     case R.id.buttonMultiply:
-                        text1 = mEditText.getText().toString();
                         mEditText.setText("");
+                        flag = 1;
                         break;
                     case R.id.buttonMinus:
-                        text1 = mEditText.getText().toString();
                         mEditText.setText("");
+                        flag = 2;
                         break;
                     case R.id.buttonPlus:
-                        text1 = mEditText.getText().toString();
                         mEditText.setText("");
+                        flag = 3;
                         break;
                     case R.id.buttonDivide:
-                        text1 = mEditText.getText().toString();
                         mEditText.setText("");
+                        flag = 4;
                         break;
-                    case R.id.buttonEqual:
-
-
                 }
             }
         };
@@ -108,10 +119,38 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonDelete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                text1 = null;
+                text2 = null;
                 mEditText.setText("");
             }
         });
 
+        findViewById(R.id.buttonEqual).setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                num1 = Float.parseFloat(text1);
+                num2 = Float.parseFloat(text2);
+                switch (flag){
+                    case 0:
+                        break;
+                    case 1:
+                        result = num1 + num2;
+                        break;
+                    case 2:
+                        result = num1 - num2;
+                        break;
+                    case 3:
+                        result = num1 * num2;
+                        break;
+                    case 4:
+                        result = num1 / num2;
+                        break;
+                    default:
+                        break;
+                }
+                mEditText.setText("" + result);
+            }
+        });
     }
 }
 
