@@ -68,10 +68,14 @@ public class MainActivity extends AppCompatActivity {
                         mEditText.append(".");
                         break;
                 }
-                if (num) {
-                    num1 = Float.parseFloat(mEditText.getText() + "");
-                }else{
-                    num2 = Float.parseFloat(mEditText.getText() + "");
+                if(result!=0){
+                    result = num1;
+                }else {
+                    if (num) {
+                        num1 = Float.parseFloat(mEditText.getText() + "");
+                    } else {
+                        num2 = Float.parseFloat(mEditText.getText() + "");
+                    }
                 }
             }
         };

@@ -4,10 +4,9 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               tools:context="com.example.yueuy.calculator.MainActivity"
-              android:background="@drawable/deep_space"
+              android:background="@drawable/moor"
               android:orientation="horizontal"
-              android:weightSum="1"
-    >
+              android:weightSum="1">
 
     <EditText
         android:layout_width="match_parent"
@@ -16,7 +15,7 @@
         android:textColor="@color/colorText"
         android:lines="2"
         android:maxLines="2"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:labelFor="@+id/editText"
         android:id="@+id/editText"/>
 
