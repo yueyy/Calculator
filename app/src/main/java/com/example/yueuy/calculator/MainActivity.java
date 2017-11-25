@@ -3,6 +3,7 @@ package com.example.yueuy.calculator;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.FloatRange;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,17 +21,16 @@ public class MainActivity extends AppCompatActivity {
     private float num1;
     private float num2;
     public static float result;
-    private String resultPast;
-    private String resultNow;
     private EditText mEditText;
     private boolean num = true;
     private boolean mEqual=true;
-    private boolean mOperation = true;
+    private boolean mOperation;
     private int flag = 0;
 
     private Context mContext;
     private SQLiteDatabase mDatabase;
     private MyDataBaseHelper myDBHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,26 +42,47 @@ public class MainActivity extends AppCompatActivity {
         setEqual();
         setClear();
         exception();
-
-//        Button saveData = (Button) findViewById(R.id.btn_save);
-//        saveData.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SQLiteDatabase db = myDBHelper.getWritableDatabase();
-//                ContentValues values = new ContentValues();
-//                values.put("result", result);
-//                db.insert("Data", null, values);
-//                values.clear();
-//            }
-//        });
-
     }
 
     private void setNumericOnClickListener() {
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mEqual ){
+                if (mEqual){
+                    mOperation = true;
+                    switch (v.getId()) {
+                        case R.id.button0:
+                            mEditText.append("0");
+                            break;
+                        case R.id.button1:
+                            mEditText.append("1");
+                            break;
+                        case R.id.button2:
+                            mEditText.append("2");
+                            break;
+                        case R.id.button3:
+                            mEditText.append("3");
+                            break;
+                        case R.id.button4:
+                            mEditText.append("4");
+                            break;
+                        case R.id.button5:
+                            mEditText.append("5");
+                            break;
+                        case R.id.button6:
+                            mEditText.append("6");
+                            break;
+                        case R.id.button7:
+                            mEditText.append("7");
+                            break;
+                        case R.id.button8:
+                            mEditText.append("8");
+                            break;
+                        case R.id.button9:
+                            mEditText.append("9");
+                            break;
+                    }
+                }else{
                     mEditText.setText("");
                     switch (v.getId()) {
                         case R.id.button0:
@@ -96,16 +117,18 @@ public class MainActivity extends AppCompatActivity {
                             break;
                     }
                 }
+
                 if(result!=0){
-                    result = num1;
-                    num2 = 0;
-                }else {
-                    if (num) {
-                        num1 = Float.parseFloat(mEditText.getText() + "");
-                    } else {
-                        num2 = Float.parseFloat(mEditText.getText() + "");
-                    }
+                    num1 = result;
+                    num2 = Float.parseFloat(mEditText.getText().toString());
                 }
+
+                if (num &&result ==0) {
+                    num1 = Float.parseFloat(mEditText.getText() + "");
+                } else {
+                    num2 = Float.parseFloat(mEditText.getText() + "");
+                }
+
             }
         };
         for (int id : numericButton) {
@@ -122,36 +145,31 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     num = true;
                 }
-                if (num1 !=0 && num2 ==0 && mOperation) {
+                if ( mOperation) {
                     mEditText.setText("");
+                    mOperation = false;
                     switch (v.getId()) {
                         case R.id.buttonPlus:
                             mEditText.setText("");
                             flag = 1;
-                            mOperation = false;
                             break;
                         case R.id.buttonMinus:
                             mEditText.setText("");
                             flag = 2;
-                            mOperation = false;
                             break;
                         case R.id.buttonMultiply:
                             mEditText.setText("");
                             flag = 3;
-                            mOperation = false;
                             break;
                         case R.id.buttonDivide:
                             mEditText.setText("");
                             flag = 4;
-                            mOperation = false;
                             break;
                         case R.id.buttonDot:
                             mEditText.append(".");
-                            mOperation = false;
                             break;
                         case R.id.buttonPercent:
                             mEditText.append("%");
-                            mOperation = false;
                             break;
                     }
                 }
@@ -170,25 +188,25 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         result = num1 + num2;
-                        mEqual = false;
+                        mOperation = true;
                         break;
                     case 2:
                         result = num1 - num2;
-                        mEqual = false;
+                        mOperation = true;
                         break;
                     case 3:
                         result = num1 * num2;
-                        mEqual = false;
+                        mOperation = true;
                         break;
                     case 4:
                         result = num1 / num2;
-                        mEqual = false;
+                        mOperation = true;
                         break;
                     default:
                         break;
                 }
-                mOperation = true;
-                mEditText.setText("" + result);
+                mEqual = false;
+                mEditText.setText(""+result);
             }
         });
 
@@ -197,11 +215,13 @@ public class MainActivity extends AppCompatActivity {
         saveData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SQLiteDatabase db = myDBHelper.getWritableDatabase();
-                Toast.makeText(mContext,"succeed ", Toast.LENGTH_SHORT).show();
+                mContext = getApplicationContext().getApplicationContext();
+                mDatabase = new MyDataBaseHelper(mContext).getWritableDatabase();
+
+                Toast.makeText(mContext,"succeed!", Toast.LENGTH_SHORT).show();
                 ContentValues values = new ContentValues();
                 values.put("result", result);
-                db.insert("Data", null, values);
+                mDatabase.insert("Data", null, values);
                 values.clear();
             }
         });
@@ -213,10 +233,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 num1 = 0;
                 num2 = 0;
+                result = 0;
                 mEqual = true;
                 mOperation = true;
                 num = true;
-                result = 0;
                 mEditText.setText("");
             }
         });
